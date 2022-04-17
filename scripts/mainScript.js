@@ -7,7 +7,7 @@ guesses = [
 ];
 
 answers = [
-	['F3','C4','G4','A4','E5']
+	['F3','C4','G4','A4']
 ];
 
 enharmonics = ['C#/Db',	'D#/Eb', 'F#/Gb', 'G#/Ab', 'A#/Bb'];
@@ -16,12 +16,12 @@ var x = 0;
 var y = 0;
 var currentAnswer = 0;
 
-var COLUMNS = 5;
+var COLUMNS = 4;
 
 var colorCorrect = '#55c555';
 var colorRightOctave = '#55cccc';
 var colorRightPosition = '#ccc555';
-var colorWrong = '#444448';
+var colorWrong = '#e88787';
 
 // create onclicklistener for every element with the class 'key'
 document.querySelectorAll('.key').forEach(item => {
