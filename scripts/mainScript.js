@@ -7,14 +7,15 @@ guesses = [
 ];
 
 answers = [
-	['F3','C4','G4','A4']
+	['F3','C4','G4','A4'],
+	['C4','E4','G4','C5']
 ];
 
 enharmonics = ['C#/Db',	'D#/Eb', 'F#/Gb', 'G#/Ab', 'A#/Bb'];
 
 var x = 0;
 var y = 0;
-var currentAnswer = 0;
+var currentAnswer = 1;
 
 var COLUMNS = 4;
 
@@ -107,7 +108,7 @@ function submit(){
 }
 
 function win(){
-	alert("yay u win");
+	alert("Congratulations!");
 }
 
 document.getElementById("flip").addEventListener("click", flip);
