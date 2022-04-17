@@ -54,10 +54,11 @@ rect:active{
 	height: 360px;
 
 	display: grid;
-	grid-template-columns: 62px 62px 62px 62px 62px;
+	grid-template-columns: 62px 62px 62px 62px;
 	grid-template-rows:    62px 62px 62px 62px 62px;
 
-	grid-gap: 10px;
+	grid-row-gap: 10px;
+	grid-column-gap: 10px;
 	color: #444;
 
 	margin-top: 16px;

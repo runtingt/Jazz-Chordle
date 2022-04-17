@@ -27,11 +27,12 @@ var colorWrong = '#e88787';
 document.querySelectorAll('.key').forEach(item => {
   item.addEventListener('click', (elem) => {
 	var t = elem.target;
-    //console.log("clicked by " + t.id);
+    console.log("clicked by " + t.id);
 	
 	// if not out of bounds 
 	if (x != COLUMNS){
 		guesses[y].push(t.id);
+		console.log((y + 1) + '-' + (x + 1))
 		document.getElementById((y + 1) + '-' + (x + 1)).innerText=t.id;
 		x++;	
 	}
