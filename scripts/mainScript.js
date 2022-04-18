@@ -223,8 +223,8 @@ console.log(currentAnswer, answers[currentAnswer])
 var COLUMNS = 4;
 
 var colorCorrect = '#6aaa64';
-var colorRightOctave = '#44A3A3';
-var colorRightPosition = '#c9b458';
+var colorRightOctave = '#c9b458';
+var colorRightPosition = '#44A3A3';
 var colorWrong = '#e88787';
 
 // if (document.getElementById('F#4')) {
@@ -243,7 +243,7 @@ document.querySelectorAll('.key').forEach(item => {
 	
 	// if not out of bounds 
 	if (x != COLUMNS){
-		console.log("clicked by " + t.id);
+		//console.log("clicked by " + t.id);
 		guesses[y].push(t.id);
 		//console.log((y + 1) + '-' + (x + 1))
 		document.getElementById((y + 1) + '-' + (x + 1)).innerText=t.id;
@@ -279,6 +279,7 @@ function submit(){
 	// valid guess must have all notes filled
 	if(x == COLUMNS){
 		console.log(guesses)
+		console.log(x, y)
 		answerNoteNames = answers[currentAnswer].map(string => string.slice(0, -1));
 
 		for (let i = 0; i < COLUMNS; i++) {
@@ -297,7 +298,7 @@ function submit(){
 				}
 			  
 			} 
-			// if wrong position but right octave (blue)
+			// if wrong position but right octave (yellow)
 			else if(answers[currentAnswer].includes(currentNote)){
 				noteGuessBox.style.background = colorRightOctave;
 				if (document.getElementById(currentNote)) {
@@ -306,7 +307,7 @@ function submit(){
 					document.getElementById(get_flipped(currentNote)).style.fill = colorRightOctave;
 				}
 			} 
-			// if right position but wrong octave (yellow)
+			// if right position but wrong octave (blue)
 			else if(answerNoteNames.includes(currentNoteName)){
 				noteGuessBox.style.background = colorRightPosition;
 				if (document.getElementById(currentNote)) {
@@ -335,10 +336,18 @@ function submit(){
 		if(guesses[y].toString() == answers[currentAnswer].toString()){
 			win();
 		}
-
 		x = 0;
 		y++;
+		
+		if(y == guesses.length && guesses[y-1].toString() != answers[currentAnswer].toString()) {
+			lose()
+		}
 	}
+}
+
+function lose() {
+	document.getElementById("solution").style.display = "inline-block"
+	document.getElementById("solution-text").innerText = "The correct answer was: " + answers[currentAnswer]
 }
 
 function win(){

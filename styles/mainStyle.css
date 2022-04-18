@@ -111,3 +111,12 @@ rect:active{
 		top:1px;
 }
 
+#solution {
+	width: 100%;
+}
+
+#solution-text {
+	margin: 16px;
+	text-align: center;
+}
+
