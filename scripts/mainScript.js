@@ -222,9 +222,9 @@ console.log(currentAnswer, answers[currentAnswer])
 
 var COLUMNS = 4;
 
-var colorCorrect = '#55c555';
-var colorRightOctave = '#55cccc';
-var colorRightPosition = '#ccc555';
+var colorCorrect = '#6aaa64';
+var colorRightOctave = '#44A3A3';
+var colorRightPosition = '#c9b458';
 var colorWrong = '#e88787';
 
 // if (document.getElementById('F#4')) {

@@ -39,9 +39,13 @@ rect:active{
 .roundedCorner {
 	border-radius: 25px;
 	background: #28292a;
-	padding: 20px;
+	padding-top: 21px;
+	padding-bottom: 21px;
+	padding-left: 10px;
+	padding-right: 10px;
 	color:rgb(244, 244, 255) !important;
 	text-align:center;
+	vertical-align: middle;
 }
 
 #guesses, #buttons, #piano {
@@ -74,6 +78,36 @@ rect:active{
 	margin-bottom: 16px;
 	margin-right: 16px;
 	margin-left: 16px;
+
+	width: 150px;
+
+	display: flex;
+	justify-content: space-evenly;
+
+	box-shadow: inset 0px 1px 3px 0px #4b4b4b;
+	background: linear-gradient(to bottom, #444 5%, #2c2c2c 100%);
+	background-color: #444;
+	border-radius: 16px;
+	border: 1px solid #2c2c2c;
+	cursor: pointer;
+	color: rgb(244, 244, 255);
+	font-family: LexendDeca;
+	font-size: 15px;
+	font-weight: normal;
+	padding: 11px 23px;
+	text-decoration: none;
+	text-shadow: 0px -1px 0px #2c2c2c;
+
 }
 
+#buttons > button:hover {
+	background: linear-gradient(to bottom, #6c727c 5%, #6b6c7c 100%);
+	background-color: #6c7c7c;
+
+}
+
+#buttons > button:active {
+	position:relative;
+		top:1px;
+}
 
