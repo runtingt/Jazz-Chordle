@@ -7,15 +7,218 @@ guesses = [
 ];
 
 answers = [
-	['F3','C4','G4','A4'],
-	['C4','E4','G4','C5']
+	['C4', 'E4', 'G4', 'C5'],
+	['E3', 'G3', 'C4', 'E4'],
+	['G3', 'C4', 'E4', 'G4'],
+	['Db3', 'F3', 'Ab3', 'Db4'],
+	['F3', 'Ab3', 'Db4', 'F4'],
+	['Ab3', 'Db4', 'F4', 'Ab4'],
+	['D3', 'F#3', 'Ab3', 'D4'],
+	['F#3', 'Ab3', 'D4', 'F#4'],
+	['Ab3', 'D4', 'F#4', 'Ab4'],
+	['Eb3', 'G3', 'Bb3', 'Eb4'],
+	['G3', 'Bb3', 'Eb4', 'G4'],
+	['Bb3', 'Eb4', 'G4', 'Bb4'],
+	['E3', 'G#3', 'B3', 'E4'],
+	['G#3', 'B3', 'E4', 'G#4'],
+	['B3', 'E4', 'G#4', 'B4'],
+	['F3', 'A3', 'C4', 'F4'],
+	['A3', 'C4', 'F4', 'A4'],
+	['C4', 'F4', 'A4', 'C5'],
+	['Gb3', 'Bb3', 'Db4', 'Gb4'],
+	['Bb3', 'Db4', 'Gb4', 'Bb4'],
+	['Db3', 'Gb3', 'Bb3', 'Db4'],
+	['G3', 'B3', 'D4', 'G4'],
+	['B3', 'D4', 'G4', 'B4'],
+	['D3', 'G3', 'B3', 'D4'],
+	['Ab3', 'C4', 'Eb4', 'Ab4'],
+	['C4', 'Eb4', 'Ab4', 'C5'],
+	['Eb3', 'Ab3', 'C4', 'Eb4'],
+	['A3', 'C#4', 'E4', 'A4'],
+	['C#3', 'E3', 'A3', 'C#4'],
+	['E3', 'A3', 'C#4', 'E4'],
+	['Bb3', 'D4', 'F4', 'Bb4'],
+	['D3', 'F3', 'Bb3', 'D4'],
+	['F3', 'Bb3', 'D4', 'F4'],
+	['B3', 'D#4', 'F#4', 'B4'],
+	['D#3', 'F#3', 'B3', 'D#4'],
+	['F#3', 'B3', 'D#4', 'F#4'],
+	['C4', 'Eb4', 'G4', 'C5'],
+	['Eb3', 'G3', 'C4', 'Eb4'],
+	['G3', 'C4', 'Eb4', 'G4'],
+	['Db3', 'E3', 'Ab3', 'Db4'],
+	['E3', 'Ab3', 'Db4', 'E4'],
+	['Ab3', 'Db4', 'E4', 'Ab4'],
+	['D3', 'F3', 'Ab3', 'D4'],
+	['F3', 'Ab3', 'D4', 'F4'],
+	['Ab3', 'D4', 'F4', 'Ab4'],
+	['Eb3', 'Gb3', 'Bb3', 'Eb4'],
+	['Gb3', 'Bb3', 'Eb4', 'Gb4'],
+	['Bb3', 'Eb4', 'Gb4', 'Bb4'],
+	['E3', 'G3', 'B3', 'E4'],
+	['G3', 'B3', 'E4', 'G4'],
+	['B3', 'E4', 'G4', 'B4'],
+	['F3', 'Ab3', 'C4', 'F4'],
+	['Ab3', 'C4', 'F4', 'Ab4'],
+	['C4', 'F4', 'Ab4', 'C5'],
+	['Gb3', 'A3', 'Db4', 'Gb4'],
+	['A3', 'Db4', 'Gb4', 'A4'],
+	['Db3', 'Gb3', 'A3', 'Db4'],
+	['G3', 'Bb3', 'D4', 'G4'],
+	['Bb3', 'D4', 'G4', 'Bb4'],
+	['D3', 'G3', 'Bb3', 'D4'],
+	['Ab3', 'B3', 'Eb4', 'Ab4'],
+	['B3', 'Eb4', 'Ab4', 'B4'],
+	['Eb3', 'Ab3', 'B3', 'Eb4'],
+	['A3', 'C4', 'E4', 'A4'],
+	['C4', 'E4', 'A4', 'C5'],
+	['E3', 'A3', 'C4', 'E4'],
+	['Bb3', 'Db4', 'F4', 'Bb4'],
+	['Db3', 'F3', 'Bb3', 'Db4'],
+	['F3', 'Bb3', 'Db4', 'F4'],
+	['B3', 'D4', 'F#4', 'B4'],
+	['D3', 'F#3', 'B3', 'D4'],
+	['F#3', 'B3', 'D4', 'F#4'],
+	['C4', 'E4', 'G#4', 'C5'],
+	['E3', 'G#3', 'C4', 'E4'],
+	['G#3', 'C4', 'E4', 'G#4'],
+	['Db3', 'F3', 'A3', 'Db4'],
+	['F3', 'A3', 'Db4', 'F4'],
+	['A3', 'Db4', 'F4', 'A4'],
+	['D3', 'F#3', 'Bb3', 'D4'],
+	['F#3', 'Bb3', 'D4', 'F#4'],
+	['Bb3', 'D4', 'F#4', 'Bb4'],
+	['Eb3', 'G3', 'B3', 'Eb4'],
+	['G3', 'B3', 'Eb4', 'G4'],
+	['B3', 'Eb4', 'G4', 'B4'],
+	['E3', 'G#3', 'C4', 'E4'],
+	['G#3', 'C4', 'E4', 'G#4'],
+	['C4', 'E4', 'G#4', 'C5'],
+	['F3', 'A3', 'C#4', 'F4'],
+	['A3', 'C#4', 'F4', 'A4'],
+	['C#3', 'F3', 'A3', 'C#4'],
+	['Gb3', 'Bb3', 'D4', 'Gb4'],
+	['Bb3', 'D4', 'Gb4', 'Bb4'],
+	['D3', 'Gb3', 'Bb3', 'D4'],
+	['G3', 'B3', 'D#4', 'G4'],
+	['B3', 'D#4', 'G4', 'B4'],
+	['D#3', 'G3', 'B3', 'D#4'],
+	['Ab3', 'C4', 'F4', 'Ab4'],
+	['C4', 'F4', 'Ab4', 'C5'],
+	['F3', 'Ab3', 'C4', 'F4'],
+	['A3', 'C#4', 'F4', 'A4'],
+	['C#3', 'F3', 'A3', 'C#4'],
+	['F3', 'A3', 'C#4', 'F4'],
+	['Bb3', 'D4', 'Gb4', 'Bb4'],
+	['D3', 'Gb3', 'Bb3', 'D4'],
+	['Gb3', 'Bb3', 'D4', 'Gb4'],
+	['B3', 'D#4', 'G4', 'B4'],
+	['D#3', 'G3', 'B3', 'D#4'],
+	['G3', 'B3', 'D#4', 'G4'],
+	['C4', 'E4', 'G4', 'Bb4'],
+	['E3', 'G3', 'Bb3', 'C4'],
+	['G3', 'Bb3', 'C4', 'E4'],
+	['Bb3', 'C4', 'E4', 'G4'],
+	['Db3', 'F3', 'Ab3', 'B3'],
+	['F3', 'Ab3', 'B3', 'Db4'],
+	['Ab3', 'B3', 'Db4', 'F4'],
+	['B3', 'Db4', 'F4', 'Ab4'],
+	['D3', 'F#3', 'Ab3', 'C4'],
+	['F#3', 'Ab3', 'C4', 'D4'],
+	['Ab3', 'C4', 'D4', 'F#4'],
+	['C4', 'D4', 'F#4', 'Ab4'],
+	['Eb3', 'G3', 'Bb3', 'Db4'],
+	['G3', 'Bb3', 'Db4', 'Eb4'],
+	['Bb3', 'Db4', 'Eb4', 'G4'],
+	['Db3', 'Eb3', 'G3', 'Bb3'],
+	['E3', 'G#3', 'B3', 'D4'],
+	['G#3', 'B3', 'D4', 'E4'],
+	['B3', 'D4', 'E4', 'G#4'],
+	['D3', 'E3', 'G#3', 'B3'],
+	['F3', 'A3', 'C4', 'Eb4'],
+	['A3', 'C4', 'Eb4', 'F4'],
+	['C4', 'Eb4', 'F4', 'A4'],
+	['Eb3', 'F3', 'A3', 'C4'],
+	['Gb3', 'Bb3', 'Db4', 'E4'],
+	['Bb3', 'Db4', 'E4', 'Gb4'],
+	['Db3', 'E3', 'Gb3', 'Bb3'],
+	['E3', 'Gb3', 'Bb3', 'Db4'],
+	['G3', 'B3', 'D4', 'F4'],
+	['B3', 'D4', 'F4', 'G4'],
+	['D3', 'F3', 'G3', 'B3'],
+	['F3', 'G3', 'B3', 'D4'],
+	['Ab3', 'C4', 'Eb4', 'F#4'],
+	['C4', 'Eb4', 'F#4', 'Ab4'],
+	['Eb3', 'F#3', 'Ab3', 'C4'],
+	['F#3', 'Ab3', 'C4', 'Eb4'],
+	['A3', 'C#4', 'E4', 'G4'],
+	['C#3', 'E3', 'G3', 'A3'],
+	['E3', 'G3', 'A3', 'C#4'],
+	['G3', 'A3', 'C#4', 'E4'],
+	['Bb3', 'D4', 'F4', 'Ab4'],
+	['D3', 'F3', 'Ab3', 'Bb3'],
+	['F3', 'Ab3', 'Bb3', 'D4'],
+	['Ab3', 'Bb3', 'D4', 'F4'],
+	['B3', 'D#4', 'F#4', 'A4'],
+	['D#3', 'F#3', 'A3', 'B3'],
+	['F#3', 'A3', 'B3', 'D#4'],
+	['A3', 'B3', 'D#4', 'F#4'],
+	['C4', 'Eb4', 'G4', 'Bb4'],
+	['Eb3', 'G3', 'Bb3', 'C4'],
+	['G3', 'Bb3', 'C4', 'Eb4'],
+	['Bb3', 'C4', 'Eb4', 'G4'],
+	['Db3', 'E3', 'Ab3', 'B3'],
+	['E3', 'Ab3', 'B3', 'Db4'],
+	['Ab3', 'B3', 'Db4', 'E4'],
+	['B3', 'Db4', 'E4', 'Ab4'],
+	['D3', 'F3', 'Ab3', 'C4'],
+	['F3', 'Ab3', 'C4', 'D4'],
+	['Ab3', 'C4', 'D4', 'F4'],
+	['C4', 'D4', 'F4', 'Ab4'],
+	['Eb3', 'Gb3', 'Bb3', 'Db4'],
+	['Gb3', 'Bb3', 'Db4', 'Eb4'],
+	['Bb3', 'Db4', 'Eb4', 'Gb4'],
+	['Db3', 'Eb3', 'Gb3', 'Bb3'],
+	['E3', 'G3', 'B3', 'D4'],
+	['G3', 'B3', 'D4', 'E4'],
+	['B3', 'D4', 'E4', 'G4'],
+	['D3', 'E3', 'G3', 'B3'],
+	['F3', 'Ab3', 'C4', 'Eb4'],
+	['Ab3', 'C4', 'Eb4', 'F4'],
+	['C4', 'Eb4', 'F4', 'Ab4'],
+	['Eb3', 'F3', 'Ab3', 'C4'],
+	['Gb3', 'A3', 'Db4', 'E4'],
+	['A3', 'Db4', 'E4', 'Gb4'],
+	['Db3', 'E3', 'Gb3', 'A3'],
+	['E3', 'Gb3', 'A3', 'Db4'],
+	['G3', 'Bb3', 'D4', 'F4'],
+	['Bb3', 'D4', 'F4', 'G4'],
+	['D3', 'F3', 'G3', 'Bb3'],
+	['F3', 'G3', 'Bb3', 'D4'],
+	['Ab3', 'B3', 'Eb4', 'F#4'],
+	['B3', 'Eb4', 'F#4', 'Ab4'],
+	['Eb3', 'F#3', 'Ab3', 'B3'],
+	['F#3', 'Ab3', 'B3', 'Eb4'],
+	['A3', 'C4', 'E4', 'G4'],
+	['C4', 'E4', 'G4', 'A4'],
+	['E3', 'G3', 'A3', 'C4'],
+	['G3', 'A3', 'C4', 'E4'],
+	['Bb3', 'Db4', 'F4', 'Ab4'],
+	['Db3', 'F3', 'Ab3', 'Bb3'],
+	['F3', 'Ab3', 'Bb3', 'Db4'],
+	['Ab3', 'Bb3', 'Db4', 'F4'],
+	['B3', 'D4', 'F#4', 'A4'],
+	['D3', 'F#3', 'A3', 'B3'],
+	['F#3', 'A3', 'B3', 'D4'],
+	['A3', 'B3', 'D4', 'F#4']
 ];
 
 enharmonics = ['C#/Db',	'D#/Eb', 'F#/Gb', 'G#/Ab', 'A#/Bb'];
 
 var x = 0;
 var y = 0;
-var currentAnswer = 1;
+var currentAnswer = Math.floor(Math.random() * answers.length);
+console.log(currentAnswer, answers[currentAnswer])
 
 var COLUMNS = 4;
 
@@ -24,16 +227,25 @@ var colorRightOctave = '#55cccc';
 var colorRightPosition = '#ccc555';
 var colorWrong = '#e88787';
 
+// if (document.getElementById('F#4')) {
+// 	console.log("Found it!")
+// } else {
+// 	console.log(get_flipped('F#4'))
+// 	if (document.getElementById(get_flipped('F#4'))) {
+// 		console.log("Found it after flipping")
+// 	}
+// }
+
 // create onclicklistener for every element with the class 'key'
 document.querySelectorAll('.key').forEach(item => {
   item.addEventListener('click', (elem) => {
 	var t = elem.target;
-    console.log("clicked by " + t.id);
 	
 	// if not out of bounds 
 	if (x != COLUMNS){
+		console.log("clicked by " + t.id);
 		guesses[y].push(t.id);
-		console.log((y + 1) + '-' + (x + 1))
+		//console.log((y + 1) + '-' + (x + 1))
 		document.getElementById((y + 1) + '-' + (x + 1)).innerText=t.id;
 		x++;	
 	}
@@ -55,6 +267,7 @@ document.getElementById("backspace").addEventListener("click", backspace);
 function backspace(){
 	// if not out of bounds
 	if(x != 0){
+		//console.log(guesses, y, guesses[y])
 		guesses[y].pop();
 		x--;
 		document.getElementById((y + 1) + '-' + (x + 1)).innerText="";
@@ -65,43 +278,64 @@ document.getElementById("submit").addEventListener("click", submit);
 function submit(){
 	// valid guess must have all notes filled
 	if(x == COLUMNS){
+		console.log(guesses)
 		answerNoteNames = answers[currentAnswer].map(string => string.slice(0, -1));
-		// if all correct
-		if(guesses[y].toString() == answers[currentAnswer].toString()){
-			win();
-		}
-		
+
 		for (let i = 0; i < COLUMNS; i++) {
 			var currentNote = guesses[y][i];
+			//console.log(currentNote)
 			var currentNoteName = currentNote.slice(0, -1);
 			var noteGuessBox = document.getElementById((y + 1) + '-' + (i + 1));
 			
 			// if right position and right octave (green)
 			if(currentNote == answers[currentAnswer][i]){
-			  noteGuessBox.style.background=colorCorrect;
-			  document.getElementById(currentNote).style.fill = colorCorrect;
+			  	noteGuessBox.style.background=colorCorrect;
+				if (document.getElementById(currentNote)) {
+					document.getElementById(currentNote).style.fill = colorCorrect;
+			  	} else {
+					document.getElementById(get_flipped(currentNote)).style.fill = colorCorrect;
+				}
+			  
 			} 
 			// if wrong position but right octave (blue)
 			else if(answers[currentAnswer].includes(currentNote)){
 				noteGuessBox.style.background = colorRightOctave;
-				document.getElementById(currentNote).style.fill = colorRightOctave;
+				if (document.getElementById(currentNote)) {
+					document.getElementById(currentNote).style.fill = colorRightOctave;
+			  	} else {
+					document.getElementById(get_flipped(currentNote)).style.fill = colorRightOctave;
+				}
 			} 
 			// if right position but wrong octave (yellow)
 			else if(answerNoteNames.includes(currentNoteName)){
 				noteGuessBox.style.background = colorRightPosition;
-				document.getElementById(currentNote).style.fill = colorRightPosition;
+				if (document.getElementById(currentNote)) {
+					document.getElementById(currentNote).style.fill = colorRightPosition;
+			  	} else {
+					document.getElementById(get_flipped(currentNote)).style.fill = colorRightPosition;
+				}
 			}
 			// note is not in the chord
 			else{
 				noteGuessBox.style.background = colorWrong;
-				document.getElementById(currentNote).style.fill = colorWrong;
+				if (document.getElementById(currentNote)) {
+					document.getElementById(currentNote).style.fill = colorWrong;
+			  	} else {
+					document.getElementById(get_flipped(currentNote)).style.fill = colorWrong;
+				}
 
 				keys = document.getElementsByClassName(currentNoteName);
 				Array.prototype.forEach.call(keys, function(key) {
 					key.style.fill = colorWrong;
 				});
 			}
-		} 
+		}
+		
+		// if all correct
+		if(guesses[y].toString() == answers[currentAnswer].toString()){
+			win();
+		}
+
 		x = 0;
 		y++;
 	}
@@ -118,6 +352,7 @@ function flip(){
 	var noteName = note.slice(0, -1);
 	var octave = note.charAt(note.length - 1);
 	var result = [];
+	//console.log(note)
 	
 	// find noteName and change text to its enharmonic note name
 	for(var i = 0, len = enharmonics.length; i < len; i++) {
@@ -126,10 +361,39 @@ function flip(){
 			break;
 		}
 	}
+	//console.log(guesses)
 	if (result[0] == noteName){
 		document.getElementById((y + 1) + '-' + (x)).innerText = result[1] + octave;
+		guesses[y][x-1] = result[1] + octave;
+		//console.log("True", result[1] + octave)
 	}
-	else {
+	else if (result[1] == noteName) {
 		document.getElementById((y + 1) + '-' + (x)).innerText = result[0] + octave;
+		guesses[y][x-1] = result[0] + octave;
+		//console.log("False", result[0] + octave)
 	}
+	//console.log(guesses)
+}
+
+// Get the enharmonic of the passed note
+function get_flipped(note) {
+	var noteName = note.slice(0, -1);
+	var octave = note.charAt(note.length - 1);
+	var result = [];
+
+		// find noteName and change text to its enharmonic note name
+		for(var i = 0, len = enharmonics.length; i < len; i++) {
+			if(enharmonics[i].includes(noteName)) {
+				result = enharmonics[i].split('/');
+				break;
+			}
+		}
+		//console.log(guesses)
+		if (result[0] == noteName){
+			return result[1] + octave
+		}
+		else {
+			return result[1] + octave
+		}
+		//console.log(guesses)
 }
