@@ -9,12 +9,30 @@ html, body {
 	font-family:LexendDeca;
 }
 
+.right-icons {
+	position: absolute;
+	padding: 0;
+	right: 0px;
+	top: 0px;
+	cursor: pointer;
+}
+
+#rule {
+	position: relative;
+}
+
+hr {
+	border: 0px;
+	background-color: rgba(244, 244, 255, 0.5) !important;
+	height: 1px;
+}
+
 h1{
 	font-size:40px;
 	text-align:center;
 
 	margin-top: 16px;
-	margin-bottom: 16px;
+	margin-bottom: 0px;
 	margin-right: 16px;
 	margin-left: 16px;
 }
@@ -23,7 +41,7 @@ p{
 	font-size:20px;
 	text-align:center;
 	
-	margin-bottom: 16px;
+	/* margin-bottom: 16px; */
 	margin-right: 16px;
 	margin-left: 16px;
 }
@@ -120,3 +138,45 @@ rect:active{
 	text-align: center;
 }
 
+/* Popup container - can be anything you want */
+.popup {
+	text-align: center;
+	position: absolute;
+	display: inline-block;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+/* The actual popup */
+.popup .popuptext {
+	visibility: hidden;
+	width: 320px;
+	background-color: #444;
+	color: rgb(244, 244, 255);
+	text-align: center;
+	border-radius: 6px;
+	padding: 8px 0;
+	position: absolute;
+	z-index: 1;
+	margin-left: -160px;
+}
+
+/* Toggle this class - hide and show the popup */
+.popup .show {
+	visibility: visible;
+	-webkit-animation: fadeIn 1s;
+	animation: fadeIn 1s;
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+	from {opacity: 0;} 
+	to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+	from {opacity: 0;}
+	to {opacity:1 ;}
+}

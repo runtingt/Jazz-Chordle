@@ -454,7 +454,7 @@ enharmonics = ['C#/Db',	'D#/Eb', 'F#/Gb', 'G#/Ab', 'A#/Bb'];
 
 var x = 0;
 var y = 0;
-var currentAnswer = Math.floor(Math.random() * answers.length);
+var currentAnswer = 0//Math.floor(Math.random() * answers.length);
 console.log(currentAnswer, answers[currentAnswer])
 
 var COLUMNS = 4;
@@ -597,14 +597,25 @@ function sleep(ms) {
 async function win(){
 	// Play a note if we meet the time constraints
 	for (let i = 0; i < answers[currentAnswer].length; i++) {
-		// console.log(answers[currentAnswer][i], Tone.now())
-		playSynth(answers[currentAnswer][i])
-		await sleep(300)
+		// console.log(answers[currentAnswer][i], Tone.now());
+		playSynth(answers[currentAnswer][i]);
+		await sleep(300);
 	}
 	await sleep(500)
-	playSynth(answers[currentAnswer], duration=1.5)
+	playSynth(answers[currentAnswer], duration=1.5);
 	// console.log("Playing win sound")
-	alert("Congratulations! This is: " + labels[currentAnswer]);
+	document.getElementById("results").innerText = "Congratulations! This is: " + labels[currentAnswer]
+
+	// Increment the score by one
+	if (localStorage.score != undefined) {
+		localStorage.score = String(parseInt(localStorage.getItem("score")) + 1);
+	} else {
+		localStorage.setItem("score", "1");
+	}
+	
+	// Show popup
+	popup();
+
 }
 
 document.getElementById("flip").addEventListener("click", flip);
