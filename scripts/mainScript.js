@@ -515,8 +515,8 @@ document.getElementById("submit").addEventListener("click", submit);
 function submit(){
 	// valid guess must have all notes filled
 	if(x == COLUMNS){
-		console.log(guesses)
-		console.log(x, y)
+		// console.log(guesses)
+		// console.log(x, y)
 		answerNoteNames = answers[currentAnswer].map(string => string.slice(0, -1));
 
 		for (let i = 0; i < COLUMNS; i++) {
@@ -582,12 +582,28 @@ function submit(){
 	}
 }
 
+// Display the correct answer if not found
 function lose() {
 	document.getElementById("solution").style.display = "inline-block"
 	document.getElementById("solution-text").innerText = "The correct answer was " + labels[currentAnswer] + ": " + answers[currentAnswer]
 }
 
-function win(){
+// Sleep for a specified time
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+// Show a popup and play the chord if win
+async function win(){
+	// Play a note if we meet the time constraints
+	for (let i = 0; i < answers[currentAnswer].length; i++) {
+		// console.log(answers[currentAnswer][i], Tone.now())
+		playSynth(answers[currentAnswer][i])
+		await sleep(300)
+	}
+	await sleep(500)
+	playSynth(answers[currentAnswer], duration=1.5)
+	// console.log("Playing win sound")
 	alert("Congratulations! This is: " + labels[currentAnswer]);
 }
 

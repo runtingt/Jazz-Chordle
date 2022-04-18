@@ -43,15 +43,12 @@ var start_time = Tone.now()
 const piano = document.getElementById("piano");
 
 // Function to play a note
-function playSynth(note) {
+function playSynth(note, duration=0.75) {
     if (Tone.now() > start_time) {
         start_time = Tone.now()
-        console.log(start_time)
-        sampler.triggerAttackRelease(note, 0.75)
-    } else {
-        console.log(start_time, Tone.now())
+        // console.log("Playing")
+        sampler.triggerAttackRelease(note, duration)
     }
-
 }
 
 piano.addEventListener("click", async e => {
