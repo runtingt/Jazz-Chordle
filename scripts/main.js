@@ -475,15 +475,16 @@ var colorWrong = '#e88787';
 
 // If not visited before, display the how to play screen
 window.addEventListener('load', () => {
-	localStorage.clear(); // TODO remove
 	if (localStorage.visited == undefined) {
+		// Blur the background
+		document.getElementById("content").classList.toggle("blur");
+		// Show popup
+		document.getElementById("info_popup").style.visibility = "hidden"
 		info_popup();
-		let to_blur = document.getElementsByClassName("content");
-		for (let i = 0; i < to_blur.length; i++) {
-			to_blur[i].classList.toggle("blur")
-		}
+
 		localStorage.visited = "true"
 	}
+	document.getElementById("score_popup".classList.toggle("hide"))
 });
 
 // create onclicklistener for every element with the class 'key'

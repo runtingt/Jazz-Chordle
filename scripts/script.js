@@ -51,6 +51,11 @@ function position() {
         score_popup = document.getElementById("score").innerText = "All time score: " + String(localStorage.getItem("score"))
     }
 
+    // Add event listener for closing if user clicks outside
+    document.getElementsByTagName("body")[0].addEventListener("click", function(evt) {
+        is_outside(evt, "score")
+    }, {once : true});
+
 };
 
 // Show the stats page on popup
@@ -63,8 +68,14 @@ function score_popup(){
         score_popup = document.getElementById("score").innerText = "All time score: 0";
     }
     
-    document.getElementById("score_popup").classList.toggle("hide")
+    // Toggle popup
+    document.getElementById("score_popup").classList.toggle("hide");
     document.getElementById("score_popup").classList.toggle("show");
+
+    // Add event listener for closing if user clicks outside
+    document.getElementsByTagName("body")[0].addEventListener("click", function(evt) {
+        is_outside(evt, "score")
+    }, {once : true});
 }
 
 // Mute sound when speaker icon is clicked
@@ -77,26 +88,80 @@ function mute() {
 }
 
 // Function to show the how-to popup
-function info_popup() {
-    document.getElementById("info_popup").classList.toggle("hide");
-    document.getElementById("info_popup").classList.toggle("show");
+async function info_popup() {
+    // Toggle popup
+    if (document.getElementById("info_popup").style.visibility == "visible") {
+        document.getElementById("info_popup").style.opacity = "0"
+        await sleep(400) // Make this approx. the transition time (hard-coded (yuck) but only way I can make it work for now)
+        document.getElementById("info_popup").style.visibility = "hidden"
+    } else if (document.getElementById("info_popup").style.visibility == "hidden"){
+        document.getElementById("info_popup").style.opacity = "1"
+        document.getElementById("info_popup").style.visibility = "visible"
+    }
+
+    // Add event listener for closing if user clicks outside
+    document.getElementsByTagName("body")[0].addEventListener("click", function(evt) {
+        is_outside(evt, "info")
+    }, {once : true});
 }
 
 // Show the how to play popup when the info button is clicked and blur the background
 document.getElementById("info").addEventListener("click", () => {
+    // Blur the background
+    document.getElementById("content").classList.toggle("blur");
+    // Show popup
     info_popup();
-    let to_blur = document.getElementsByClassName("content");
-    for (let i = 0; i < to_blur.length; i++) {
-        to_blur[i].classList.toggle("blur")
-    }
 });
 
 // Close the popup when the cross is clicked
 document.getElementById("close").addEventListener("click", () => {
-    document.getElementById("info_popup").classList.toggle("hide");
-    document.getElementById("info_popup").classList.toggle("show");
-    let to_blur = document.getElementsByClassName("content");
-    for (let i = 0; i < to_blur.length; i++) {
-        to_blur[i].classList.toggle("blur")
-    }
+    // Blur the background
+    document.getElementById("content").classList.toggle("blur");
+    // Show popup
+    info_popup();
 });
+
+// Functions to hide popups if the screen is clicked elsewhere
+async function is_outside(e, popup_name) {
+    console.log("Looking for: ", popup_name)
+    // Check if the element (or its parents) are part of the how-to popup
+    is_popup = false;
+    el = e.target;
+    // console.log(el)
+    if (el.classList.contains(popup_name)) {
+        is_popup = true;
+    } else {
+        while (el && el.parentNode) {
+            el = el.parentNode;
+            try {
+                // console.log(el, el.classList.contains(popup_name))
+                if (el.classList.contains(popup_name)) {
+                    is_popup = true;
+                    break;
+                  }
+            } catch (TypeError) {
+                break;
+            }
+        }
+    }
+    console.log(popup_name, is_popup)
+    // Hide the popup
+    if(!is_popup) {
+        // Toggle
+        if (popup_name == "info"){
+            document.getElementById("content").classList.remove("blur");
+            document.getElementById(popup_name+"_popup").style.opacity = "0"
+            await sleep(400) // Make this approx. the transition time (hard-coded (yuck) but only way I can make it work for now)
+            document.getElementById(popup_name+"_popup").style.visibility = "hidden"
+        } else {
+            document.getElementById("score_popup").classList.add("hide");
+            document.getElementById("score_popup").classList.remove("show");
+        }
+
+    } else  { 
+        // Allow re-use
+        document.getElementsByTagName("body")[0].addEventListener("click", function(evt) {
+            is_outside(evt, popup_name)
+        }, {once : true});
+    }
+}

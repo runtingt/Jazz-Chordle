@@ -34,7 +34,7 @@ function playSynth(note, duration=0.75) {
     }
 }
 
-piano.addEventListener("click", async e => {
+piano.addEventListener("click", async (e) => {
     if(!muted){
         await Tone.start()
         // Play a note if we meet the time constraints
