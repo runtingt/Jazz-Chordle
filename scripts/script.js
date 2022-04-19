@@ -1,5 +1,6 @@
 window.addEventListener('load', position);
-window.addEventListener('resize', position)
+window.addEventListener('resize', position);
+window.addEventListener("scroll", position);
 
 // Function to reposition/scale elements
 function position() {
@@ -8,37 +9,85 @@ function position() {
     let popups = document.getElementsByClassName('popup');
 
     let page_width = document.body.offsetWidth;
-    let page_height = document.body.offsetHeight
+    let page_height = document.body.offsetHeight;
 
     // Position the buttons in the top right
-    for (let i = 0; i < right_icons.length; i++) {
-        right_icons[i].style.position = "absolute";
-        right_icons[i].style.top = String(rule_height/4)+"px";
-        right_icons[i].style.right = String(rule_height*i/1.5)+"px";
+    // console.log(page_width)
+    if(page_width > 750) {
+        console.log("big")
+        // Position icons
+        for (let i = 0; i < right_icons.length; i++) {
+            right_icons[i].style.position = "absolute";
+            right_icons[i].style.top = String(rule_height/4)+"px";
+            right_icons[i].style.right = String(rule_height*i/1.5)+"px";
+            right_icons[i].style.left = "";
 
-        right_icons[i].style.height = String(rule_height/2)+"px";
-        right_icons[i].style.width = String(rule_height/2)+"px";
+            right_icons[i].style.height = String(rule_height/2)+"px";
+            right_icons[i].style.width = String(rule_height/2)+"px";
 
-        right_icons[i].style.marginRight = "10px";
-    }
-
-    // Resize the popups
-    let popup_texts = document.getElementsByClassName('popuptext');
-    for (let i = 0; i < popup_texts.length; i++) {
-        if (popup_texts[i].id == "info_popup") {
-            popup_texts[i].style.width = String(page_width/1.9)+"px";
-            popup_texts[i].style.height = String(page_height/1.25)+"px";
-        } else if (popup_texts[i].id == "score_popup") {
-            popup_texts[i].style.width = String(page_width/5)+"px";
-            popup_texts[i].style.height = String(page_height/17)+"px";
+            right_icons[i].style.marginRight = "10px";
+            right_icons[i].style.marginLeft = "0px";
         }
-    }
 
-    // Centre the popups
-    for (let i = 0; i < popups.length; i++) {
-        popups[i].style.position = "absolute";
-        popups[i].style.top = String(page_height/2 - parseInt(popup_texts[i].style.height)/2)+"px";
-        popups[i].style.left = String(page_width/2 - parseInt(popup_texts[i].style.width)/2)+"px";
+        // Resize popups
+        let popup_texts = document.getElementsByClassName('popuptext');
+        // console.log(String(page_width/(2*(0.5*Math.log10(Math.pow(page_width, 5))-6)))+"px")
+        for (let i = 0; i < popup_texts.length; i++) {
+            if (popup_texts[i].id == "info_popup") {
+                popup_texts[i].style.width = String(page_width/(0.5*Math.log10(Math.pow(page_width, 5))-6))+"px";
+                popup_texts[i].style.height = "auto";
+            } else if (popup_texts[i].id == "score_popup") {
+                popup_texts[i].style.width = String(page_width/(2*(0.5*Math.log10(Math.pow(page_width, 5))-6)))+"px";
+                popup_texts[i].style.height = String(page_height/17)+"px";
+            }
+        }
+
+        // Centre the popups
+        for (let i = 0; i < popups.length; i++) {
+            popups[i].style.position = "absolute";
+            popups[i].style.top = String(page_height/2 - popup_texts[i].offsetHeight/2)+"px";
+            popups[i].style.left = String(page_width/2 - parseInt(popup_texts[i].style.width)/2)+"px";
+        }
+        
+    } else {
+        // console.log("small")
+        // Position icons
+        for (let i = 0; i < right_icons.length; i++) {
+            right_icons[i].style.position = "absolute";
+            right_icons[i].style.top = String(rule_height/3)+"px";
+
+            if(i == 0) {
+                right_icons[i].style.left = String(rule_height*i/1.5)+"px";
+                right_icons[i].style.marginLeft = "10px";
+            } else {
+                right_icons[i].style.right = String(rule_height*(i-1)/1.5)+"px";
+                right_icons[i].style.marginRight = "10px";
+            }
+
+            right_icons[i].style.height = String(rule_height/3)+"px";
+            right_icons[i].style.width = String(rule_height/3)+"px";
+
+        }
+
+        // Resize popups
+        let popup_texts = document.getElementsByClassName('popuptext');
+        for (let i = 0; i < popup_texts.length; i++) {
+            if (popup_texts[i].id == "info_popup") {
+                popup_texts[i].style.width = String(page_width/1)+"px";
+                popup_texts[i].style.height = "auto"
+                console.log(popup_texts[i].offsetHeight)
+            } else if (popup_texts[i].id == "score_popup") {
+                popup_texts[i].style.width = String(page_width/(0.5*Math.log10(Math.pow(page_width, 5))-6))+"px";
+                popup_texts[i].style.height = String(page_height/17)+"px";
+            }
+        }
+
+        // Centre the popups
+        for (let i = 0; i < popups.length; i++) {
+            popups[i].style.position = "absolute";
+            popups[i].style.top = String(page_height/2 - popup_texts[i].offsetHeight/2)+"px";
+            popups[i].style.left = String(page_width/2 - parseInt(popup_texts[i].style.width)/2)+"px";
+        }
     }
 
     // Position the close button on how-to
@@ -123,7 +172,7 @@ document.getElementById("close").addEventListener("click", () => {
 
 // Functions to hide popups if the screen is clicked elsewhere
 async function is_outside(e, popup_name) {
-    console.log("Looking for: ", popup_name)
+    // console.log("Looking for: ", popup_name)
     // Check if the element (or its parents) are part of the how-to popup
     is_popup = false;
     el = e.target;
@@ -144,7 +193,7 @@ async function is_outside(e, popup_name) {
             }
         }
     }
-    console.log(popup_name, is_popup)
+    // console.log(popup_name, is_popup)
     // Hide the popup
     if(!is_popup) {
         // Toggle

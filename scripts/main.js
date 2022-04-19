@@ -479,15 +479,15 @@ window.addEventListener('load', () => {
 		// Blur the background
 		document.getElementById("content").classList.toggle("blur");
 		// Show popup
-		document.getElementById("info_popup").style.visibility = "hidden"
+		document.getElementById("info_popup").style.visibility = "hidden";
 		info_popup();
 
-		localStorage.visited = "true"
+		localStorage.visited = "true";
 	} else {
 		// Show popup
-		document.getElementById("info_popup").style.visibility = "hidden"
+		document.getElementById("info_popup").style.visibility = "hidden";
 	}
-	document.getElementById("score_popup".classList.toggle("hide"))
+	document.getElementById("score_popup").classList.toggle("show");
 });
 
 // create onclicklistener for every element with the class 'key'
