@@ -57,25 +57,14 @@ rect:active{
 .roundedCorner {
 	border-radius: 25px;
 	background: #28292a;
-	padding-top: 30px;
+	padding-top: 21px;
 	padding-bottom: 21px;
 	padding-left: 10px;
 	padding-right: 10px;
 	color:rgb(244, 244, 255) !important;
-	text-align:center;
+	text-align: center;
 	vertical-align: middle;
-}
-
-.roundedCorner_ex {
-	border-radius: 25px;
-	background: #28292a;
-	padding-top: 30px;
-	padding-bottom: 21px;
-	padding-left: 10px;
-	padding-right: 10px;
-	color:rgb(244, 244, 255) !important;
-	text-align:center;
-	vertical-align: middle;
+	user-select: none;
 }
 
 #guesses, #buttons, #piano {
@@ -103,6 +92,17 @@ rect:active{
 	justify-content: center;
 }
 
+.exCol {
+	display: grid;
+	grid-template-columns: 62px 62px 62px 62px;
+	grid-template-rows:    62px;
+	grid-column-gap: 10px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	justify-content: center;
+	vertical-align: middle;
+}
+
 #buttons > button {
 	margin-top: 16px;
 	margin-bottom: 16px;
@@ -128,17 +128,21 @@ rect:active{
 	text-decoration: none;
 	text-shadow: 0px -1px 0px #2c2c2c;
 
+	user-select: none;
 }
 
 #buttons > button:hover {
 	background: linear-gradient(to bottom, #6c727c 5%, #6b6c7c 100%);
 	background-color: #6c7c7c;
-
 }
 
 #buttons > button:active {
 	position:relative;
 		top:1px;
+}
+
+.info {
+	user-select: none;
 }
 
 #solution {
@@ -163,22 +167,24 @@ rect:active{
 
 /* The actual popup */
 .popup .popuptext {
-	visibility: hidden;
 	width: 320px;
 	background-color: #444;
 	color: rgb(244, 244, 255);
 	text-align: center;
 	border-radius: 6px;
-	padding: 8px 0;
 	position: absolute;
 	z-index: 1;
+	transition-property: opacity;
+	transition-duration: 1s;
 }
 
 /* Toggle this class - hide and show the popup */
 .popup .show {
-	visibility: visible;
-	-webkit-animation: fadeIn 1s;
-	animation: fadeIn 1s;
+	opacity: 1;
+}
+
+.popup .hide {
+	opacity: 0;
 }
 
 /* Add animation (fade in the popup) */
@@ -189,7 +195,17 @@ rect:active{
 
 @keyframes fadeIn {
 	from {opacity: 0;}
-	to {opacity:1 ;}
+	to {opacity: 1;}
+}
+
+@-webkit-keyframes fadeOut {
+	from {opacity: 1;} 
+	to {opacity: 0;}
+}
+
+@keyframes fadeOut {
+	from {opacity: 1;}
+	to {opacity: 0}
 }
 
 .hidden{
@@ -200,4 +216,17 @@ rect:active{
 #info_popup > p {
 	text-align: left;
 	line-height: 2em;
+}
+
+/* Close button */
+#close {
+	float: right;
+	cursor: pointer;
+}
+
+/* Blur elements */
+.blur {
+	filter: blur(2px);
+	pointer-events: none;
+	user-select: none;
 }

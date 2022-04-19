@@ -45,6 +45,7 @@
 	<div id="stats" class="right-icons">
 		<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true" class="h-6 w-6 mr-2 cursor-pointer dark:stroke-white"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
 	</div>
+	<div class="content">
 	<div id="rule"><hr></div>
 	
 		
@@ -412,37 +413,47 @@
 		<p id="solution-text"></p>
 	</div>
 
+	<div class="info">
+		<p>
+			Inspired by the <a href="https://www.chordle.synthase.cc/">original chordle</a>. Each chord starts between C#3 and C4 and extends a maximum of one octave.
+		</p>
+	</div>
+	</div>
+
 	<!-- Score popup -->
 	<div class="popup">
-		<div class="popuptext" id="score_popup">
-			<!-- test -->
-			<!-- <p id="results"></p> -->
-			<p id="score"></p>
+		<div class="popuptext hide" id="score_popup">
+			<p id="score" style="padding-top:7px"></p>
 		</div>
 	</div>
 
 	<!-- How to play popup -->
 	<div class="popup">
-		<div class="popuptext" id="info_popup">
+		<div class="popuptext hide" id="info_popup">
+			<div id="close">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+					<path d="M13.41 12l4.3-4.29a1 1 0 1 0-1.42-1.42L12 10.59l-4.29-4.3a1 1 0 0 0-1.42 1.42l4.3 4.29-4.3 4.29a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l4.29-4.3 4.29 4.3a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42z" fill="#ffffff" class="color000 svgShape"/>
+				</svg>
+			</div>
 			<h1>How to play</h1>
 			<p>Guess the chord in 5 tries</p>
-			<p>The chords can be in any major, minor, 7th or augmented key</p>
+			<p>The chords can be in any inversion of any major, minor, 7th or augmented key</p>
+			<p>Use the flip button to change between enharmonics</p>
 			<p>The colour of the keys and tiles will change to show how close your guess was. For example:</p>
 			<div id="guesses">
-				<div class="gridCol">
-				<span class="roundedCorner_ex"></span>
-				<span class="roundedCorner_ex"></span>
-				<span class="roundedCorner_ex"></span>
-				<span class="roundedCorner_ex"></span>
+				<div class="exCol">
+					<span class="roundedCorner" style="background: #6aaa64;">C4</span>
+					<span class="roundedCorner" style="background: #c9b458;">G4</span>
+					<span class="roundedCorner" style="background: #44A3A3;">E5</span>
+					<span class="roundedCorner" style="background: #e88787;">F5</span>
 				</div>
 			</div>
+			<p>The note C4 is the correct note in the correct position</p>
+			<p>The note G4 is in the chord, but not in this position</p>
+			<p>There is at least one E in the chord, but not in this octave</p>
+			<p>There are no Fs in the chord</p>
+			<p>In this case the chord was Cmaj: C4 E4 G4 C5</p>
 		</div>
-	</div>
-
-	<div class="info">
-		<p>
-			Inspired by the <a href="https://www.chordle.synthase.cc/">original chordle</a>. Each chord starts between C#3 and C4 and extends a maximum of one octave.
-		</p>
 	</div>
 
 	<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> -->

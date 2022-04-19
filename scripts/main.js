@@ -474,11 +474,17 @@ var colorWrong = '#e88787';
 // }
 
 // If not visited before, display the how to play screen
-//localStorage.clear(); // TODO remove
-if (localStorage.visited == undefined) {
-	info_popup();
-	localStorage.visited = "true"
-}
+window.addEventListener('load', () => {
+	localStorage.clear(); // TODO remove
+	if (localStorage.visited == undefined) {
+		info_popup();
+		let to_blur = document.getElementsByClassName("content");
+		for (let i = 0; i < to_blur.length; i++) {
+			to_blur[i].classList.toggle("blur")
+		}
+		localStorage.visited = "true"
+	}
+});
 
 // create onclicklistener for every element with the class 'key'
 document.querySelectorAll('.key').forEach(item => {
