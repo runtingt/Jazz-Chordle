@@ -27,6 +27,7 @@ window.addEventListener('load', (event) => {
 
 });
 
+// Show the stats page on popup
 document.getElementById("stats").addEventListener("click", popup);
 function popup(){
     // Update the popup with the latest score
@@ -37,4 +38,13 @@ function popup(){
     }
     
     document.getElementById("popup").classList.toggle("show")
+}
+
+// Mute sound on popup
+document.getElementById("speaker").addEventListener("click", mute);
+function mute() {
+    // Toggle the svg
+    document.getElementById("mute").classList.toggle("hidden")
+    document.getElementById("mute").classList.toggle("show")
+    muted = !muted
 }

@@ -180,3 +180,7 @@ rect:active{
 	from {opacity: 0;}
 	to {opacity:1 ;}
 }
+
+.hidden{
+	visibility: hidden;
+}

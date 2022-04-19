@@ -456,7 +456,7 @@ var x = 0;
 var y = 0;
 var currentAnswer = Math.floor(Math.random() * answers.length);
 console.log(currentAnswer, answers[currentAnswer])
-
+var muted = false;
 var COLUMNS = 4;
 
 var colorCorrect = '#6aaa64';
@@ -595,14 +595,16 @@ function sleep(ms) {
 
 // Show a popup and play the chord if win
 async function win(){
-	// Play a note if we meet the time constraints
-	for (let i = 0; i < answers[currentAnswer].length; i++) {
-		// console.log(answers[currentAnswer][i], Tone.now());
-		playSynth(answers[currentAnswer][i]);
-		await sleep(300);
+	if(!muted) {
+		// Play a note if we meet the time constraints
+		for (let i = 0; i < answers[currentAnswer].length; i++) {
+			// console.log(answers[currentAnswer][i], Tone.now());
+			playSynth(answers[currentAnswer][i]);
+			await sleep(300);
 	}
 	await sleep(500)
 	playSynth(answers[currentAnswer], duration=1.5);
+	}
 	// console.log("Playing win sound")
 	document.getElementById("results").innerText = "Congratulations! This is: " + labels[currentAnswer]
 
