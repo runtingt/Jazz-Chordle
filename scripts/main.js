@@ -483,6 +483,9 @@ window.addEventListener('load', () => {
 		info_popup();
 
 		localStorage.visited = "true"
+	} else {
+		// Show popup
+		document.getElementById("info_popup").style.visibility = "hidden"
 	}
 	document.getElementById("score_popup".classList.toggle("hide"))
 });
