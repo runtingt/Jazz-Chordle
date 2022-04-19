@@ -57,7 +57,19 @@ rect:active{
 .roundedCorner {
 	border-radius: 25px;
 	background: #28292a;
-	padding-top: 21px;
+	padding-top: 30px;
+	padding-bottom: 21px;
+	padding-left: 10px;
+	padding-right: 10px;
+	color:rgb(244, 244, 255) !important;
+	text-align:center;
+	vertical-align: middle;
+}
+
+.roundedCorner_ex {
+	border-radius: 25px;
+	background: #28292a;
+	padding-top: 30px;
 	padding-bottom: 21px;
 	padding-left: 10px;
 	padding-right: 10px;
@@ -160,7 +172,6 @@ rect:active{
 	padding: 8px 0;
 	position: absolute;
 	z-index: 1;
-	margin-left: -160px;
 }
 
 /* Toggle this class - hide and show the popup */
@@ -183,4 +194,10 @@ rect:active{
 
 .hidden{
 	visibility: hidden;
+}
+
+/* Popup text */
+#info_popup > p {
+	text-align: left;
+	line-height: 2em;
 }

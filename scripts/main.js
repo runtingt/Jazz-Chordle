@@ -473,6 +473,13 @@ var colorWrong = '#e88787';
 // 	}
 // }
 
+// If not visited before, display the how to play screen
+//localStorage.clear(); // TODO remove
+if (localStorage.visited == undefined) {
+	info_popup();
+	localStorage.visited = "true"
+}
+
 // create onclicklistener for every element with the class 'key'
 document.querySelectorAll('.key').forEach(item => {
   item.addEventListener('click', (elem) => {
@@ -616,7 +623,7 @@ async function win(){
 	}
 	
 	// Show popup
-	popup();
+	score_popup();
 
 }
 

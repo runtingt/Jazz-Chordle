@@ -20,10 +20,10 @@
         <h1>Musicle</h1>
     </header>
 	
-	<!-- Settings -->
-	<!-- <div class="right-icons">
-		<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true" class="h-6 w-6 cursor-pointer dark:stroke-white"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-	</div> -->
+	<!-- Info -->
+	<div id="info" class="right-icons">
+		<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true" class="h-6 w-6 mr-2 cursor-pointer dark:stroke-white"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+	</div>
 	<!-- Speaker -->
 	<div id="speaker" class="right-icons">
 		<svg xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 640 640" xml:space="preserve" id="svg197" sodipodi:docname="mute.svg" inkscape:version="1.1.2 (b8e25be833, 2022-02-05)">
@@ -405,18 +405,37 @@
 		<span id="5-3" class="roundedCorner"></span>
 		<span id="5-4" class="roundedCorner"></span>
 		<!-- <span id="5-5" class="roundedCorner"></span> -->
-	</div>
+		</div>
 	</div>
 	
 	<div id="solution" style="display:none">
 		<p id="solution-text"></p>
 	</div>
 
-	<!-- Popup -->
+	<!-- Score popup -->
 	<div class="popup">
-		<div class="popuptext" id="popup">
-			<p id="results"></p>
+		<div class="popuptext" id="score_popup">
+			<!-- test -->
+			<!-- <p id="results"></p> -->
 			<p id="score"></p>
+		</div>
+	</div>
+
+	<!-- How to play popup -->
+	<div class="popup">
+		<div class="popuptext" id="info_popup">
+			<h1>How to play</h1>
+			<p>Guess the chord in 5 tries</p>
+			<p>The chords can be in any major, minor, 7th or augmented key</p>
+			<p>The colour of the keys and tiles will change to show how close your guess was. For example:</p>
+			<div id="guesses">
+				<div class="gridCol">
+				<span class="roundedCorner_ex"></span>
+				<span class="roundedCorner_ex"></span>
+				<span class="roundedCorner_ex"></span>
+				<span class="roundedCorner_ex"></span>
+				</div>
+			</div>
 		</div>
 	</div>
 
@@ -428,7 +447,7 @@
 
 	<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> -->
 	<script src="scripts/piano.js"></script>
-	<script src="scripts/main.js"></script>
 	<script src="scripts/script.js"></script>
+	<script src="scripts/main.js"></script>
 </body>
 </html>
