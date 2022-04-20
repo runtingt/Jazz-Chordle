@@ -455,7 +455,7 @@ enharmonics_list = ["C#", "Db", "D#", "Eb", "F#", "Gb", "G#", "Ab", "A#", "Bb"]
 
 var x = 0;
 var y = 0;
-var currentAnswer = 7//Math.floor(Math.random() * answers.length);
+var currentAnswer = Math.floor(Math.random() * answers.length);
 console.log(currentAnswer, answers[currentAnswer])
 var muted = false;
 var COLUMNS = 4;
