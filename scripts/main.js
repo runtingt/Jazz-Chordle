@@ -533,8 +533,10 @@ function get_enharmonic(note) {
 			// Else go backwards	
 			enharmonic_pair = enharmonics_list[enharmonics_list.indexOf(note_no_octave) - 1]
 		}
+	} else {
+		enharmonic_pair = note_no_octave
 	}
-	return enharmonic_pair+octave
+		return enharmonic_pair+octave
 }
 
 // Submit a guess
