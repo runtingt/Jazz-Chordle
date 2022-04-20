@@ -7,6 +7,7 @@ html, body {
 	background-color:rgb(24, 26, 27) !important;
 	color:rgb(244, 244, 255) !important;
 	font-family:LexendDeca;
+	overflow-x: hidden;
 }
 
 .right-icons {

@@ -1,6 +1,6 @@
 window.addEventListener('load', position);
 window.addEventListener('resize', position);
-window.addEventListener("scroll", position);
+// window.addEventListener("scroll", position);
 
 // Function to reposition/scale elements
 function position() {
@@ -75,7 +75,7 @@ function position() {
             if (popup_texts[i].id == "info_popup") {
                 popup_texts[i].style.width = String(page_width/1)+"px";
                 popup_texts[i].style.height = "auto"
-                console.log(popup_texts[i].offsetHeight, screen.availHeight, window.innerHeight)
+                // console.log(popup_texts[i].offsetHeight, screen.availHeight, window.innerHeight)
             } else if (popup_texts[i].id == "score_popup") {
                 popup_texts[i].style.width = String(page_width/(0.5*Math.log10(Math.pow(page_width, 5))-6))+"px";
                 popup_texts[i].style.height = String(page_height/17)+"px";
@@ -85,8 +85,8 @@ function position() {
         // Centre the popups
         for (let i = 0; i < popups.length; i++) {
             popups[i].style.position = "absolute";
-            popups[i].style.top = String(page_height/2 - popup_texts[i].offsetHeight/2 + (window.innerHeight-popup_texts[i].offsetHeight))+"px";
-            popups[i].style.left = String(page_width/2 - parseInt(popup_texts[i].style.width)/2)+"px";
+            popups[i].style.top = String(Math.max(page_height/2 - popup_texts[i].offsetHeight/2, 7)) +"px";
+            popups[i].style.left = String(Math.max(page_width/2 - parseInt(popup_texts[i].style.width)/2, 0))+"px";
         }
     }
 
@@ -166,8 +166,10 @@ document.getElementById("info").addEventListener("click", () => {
 document.getElementById("close").addEventListener("click", () => {
     // Blur the background
     document.getElementById("content").classList.toggle("blur");
-    // Show popup
+    // Hide popup
     info_popup();
+    // Re-show elements
+    position();
 });
 
 // Functions to hide popups if the screen is clicked elsewhere

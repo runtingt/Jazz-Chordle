@@ -25,6 +25,28 @@ var start_time = Tone.now()
 // Get the piano
 const piano = document.getElementById("piano");
 
+// Display a number of keys based on the screen width
+window.addEventListener('load', load_piano);
+window.addEventListener('resize', load_piano);
+function load_piano() {
+    keys = piano.children;
+    offset = keys[0].getBoundingClientRect().x;
+    console.log(piano.width.baseVal.value)
+    piano.width.baseVal.value = Math.min(piano.width.baseVal.value, document.documentElement.clientWidth)
+    for(let i = 0; i < keys.length; i++) {
+        console.log(keys[36].x.baseVal.value, keys[36].x.baseVal.value+offset, document.documentElement.clientWidth)
+        try {
+            if(keys[i+1].x.baseVal.value + offset > document.documentElement.clientWidth) {
+                keys[i+1].style.display = "none";
+            } else {
+                keys[i].style.display = "inline";
+            }
+        } catch (TypeError) {
+            break;
+        }
+    }
+}
+
 // Function to play a note
 function playSynth(note, duration=0.75) {
     if (Tone.now() > start_time) {
