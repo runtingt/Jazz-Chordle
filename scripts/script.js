@@ -14,7 +14,6 @@ function position() {
     // Position the buttons in the top right
     // console.log(page_width)
     if(page_width > 750) {
-        console.log("big")
         // Position icons
         for (let i = 0; i < right_icons.length; i++) {
             right_icons[i].style.position = "absolute";
@@ -38,7 +37,7 @@ function position() {
                 popup_texts[i].style.height = "auto";
             } else if (popup_texts[i].id == "score_popup") {
                 popup_texts[i].style.width = String(page_width/(2*(0.5*Math.log10(Math.pow(page_width, 5))-6)))+"px";
-                popup_texts[i].style.height = String(page_height/17)+"px";
+                popup_texts[i].style.height = "auto";
             }
         }
 
@@ -50,7 +49,6 @@ function position() {
         }
         
     } else {
-        // console.log("small")
         // Position icons
         for (let i = 0; i < right_icons.length; i++) {
             right_icons[i].style.position = "absolute";
@@ -77,7 +75,7 @@ function position() {
                 popup_texts[i].style.height = "auto"
             } else if (popup_texts[i].id == "score_popup") {
                 popup_texts[i].style.width = String(Math.min(page_width/(2*(0.5*Math.log10(Math.pow(page_width, 5))-6)), document.documentElement.clientWidth))+"px";
-                popup_texts[i].style.height = String(page_height/17)+"px";
+                popup_texts[i].style.height = "auto";
             }
         }
 
@@ -96,7 +94,7 @@ function position() {
 
     // Add all time score to the popup
     if (localStorage.score != undefined) {
-        score_popup = document.getElementById("score").innerText = "All time score: " + String(localStorage.getItem("score"))
+        document.getElementById("score").innerText = "All time score: " + String(localStorage.getItem("score"))
     }
 
     // Add event listener for closing if user clicks outside
@@ -111,11 +109,20 @@ document.getElementById("stats").addEventListener("click", score_popup);
 function score_popup(){
     // Update the popup with the latest score
     if (localStorage.score != undefined){
-        score_popup = document.getElementById("score").innerText = "All time score: " + String(localStorage.getItem("score"));
+        document.getElementById("score").innerText = "All time score: " + String(localStorage.getItem("score"));
     } else {
-        score_popup = document.getElementById("score").innerText = "All time score: 0";
+        document.getElementById("score").innerText = "All time score: 0";
     }
     
+    // Change padding if no results
+    if (document.getElementById("results").innerHTML == '') {
+        document.getElementById("results").style.paddingTop = 0;
+        document.getElementById("results").style.paddingBottom = 0;
+    } else {
+        document.getElementById("results").style.paddingTop = "7px";
+        document.getElementById("results").style.paddingBottom = "7px";
+    }
+
     // Toggle popup
     document.getElementById("score_popup").classList.toggle("hide");
     document.getElementById("score_popup").classList.toggle("show");
@@ -173,17 +180,17 @@ document.getElementById("close").addEventListener("click", () => {
 
 // Functions to hide popups if the screen is clicked elsewhere
 async function is_outside(e, popup_name) {
-    // Check if the element (or its parents) are part of the how-to popup
+    // Check if the element (or its parents) are popups or the submit button
     is_popup = false;
     el = e.target;
-    if (el.classList.contains(popup_name)) {
+    if (el.classList.contains(popup_name) || el.id == "submit") {
         is_popup = true;
     } else {
         while (el && el.parentNode) {
             el = el.parentNode;
             try {
                 // console.log(el, el.classList.contains(popup_name))
-                if (el.classList.contains(popup_name)) {
+                if (el.classList.contains(popup_name) || el.id == "submit") {
                     is_popup = true;
                     break;
                   }
@@ -192,7 +199,7 @@ async function is_outside(e, popup_name) {
             }
         }
     }
-    // console.log(popup_name, is_popup)
+
     // Hide the popup
     if(!is_popup) {
         // Toggle

@@ -451,10 +451,11 @@ labels = [
 ];
 
 enharmonics = ['C#/Db',	'D#/Eb', 'F#/Gb', 'G#/Ab', 'A#/Bb'];
+enharmonics_list = ["C#", "Db", "D#", "Eb", "F#", "Gb", "G#", "Ab", "A#", "Bb"]
 
 var x = 0;
 var y = 0;
-var currentAnswer = Math.floor(Math.random() * answers.length);
+var currentAnswer = 7//Math.floor(Math.random() * answers.length);
 console.log(currentAnswer, answers[currentAnswer])
 var muted = false;
 var COLUMNS = 4;
@@ -463,15 +464,6 @@ var colorCorrect = '#6aaa64';
 var colorRightOctave = '#c9b458';
 var colorRightPosition = '#44A3A3';
 var colorWrong = '#e88787';
-
-// if (document.getElementById('F#4')) {
-// 	console.log("Found it!")
-// } else {
-// 	console.log(get_flipped('F#4'))
-// 	if (document.getElementById(get_flipped('F#4'))) {
-// 		console.log("Found it after flipping")
-// 	}
-// }
 
 // If not visited before, display the how to play screen
 window.addEventListener('load', () => {
@@ -487,7 +479,7 @@ window.addEventListener('load', () => {
 		// Show popup
 		document.getElementById("info_popup").style.visibility = "hidden";
 	}
-	document.getElementById("score_popup").classList.toggle("show");
+	// document.getElementById("score_popup").classList.toggle("show");
 });
 
 // create onclicklistener for every element with the class 'key'
@@ -517,6 +509,7 @@ var name = event.key;
 	}
 }, false);
 
+// Add backspace button functionality
 document.getElementById("backspace").addEventListener("click", backspace);
 function backspace(){
 	// if not out of bounds
@@ -528,32 +521,49 @@ function backspace(){
 	}
 }
 
+// Function to convert a note to its enharmonic
+function get_enharmonic(note) {
+	note_no_octave = note.replace(/\d/g,'')
+	octave = note.charAt(note.length - 1)
+	if (enharmonics_list.includes(note_no_octave)) {
+		if(note_no_octave.charAt(note_no_octave.length - 1) == '#') {
+			// If it's a sharp, go forward in the list
+			enharmonic_pair = enharmonics_list[enharmonics_list.indexOf(note_no_octave) + 1]
+		} else {
+			// Else go backwards	
+			enharmonic_pair = enharmonics_list[enharmonics_list.indexOf(note_no_octave) - 1]
+		}
+	}
+	return enharmonic_pair+octave
+}
+
+// Submit a guess
 document.getElementById("submit").addEventListener("click", submit);
 function submit(){
 	// valid guess must have all notes filled
 	if(x == COLUMNS){
-		// console.log(guesses)
-		// console.log(x, y)
+		// Get the name of the notes without the octave
 		answerNoteNames = answers[currentAnswer].map(string => string.slice(0, -1));
 
+		var num_correct = 0
 		for (let i = 0; i < COLUMNS; i++) {
 			var currentNote = guesses[y][i];
 			//console.log(currentNote)
 			var currentNoteName = currentNote.slice(0, -1);
 			var noteGuessBox = document.getElementById((y + 1) + '-' + (i + 1));
-			
-			// if right position and right octave (green)
-			if(currentNote == answers[currentAnswer][i]){
+
+			// if right note and right position (green)
+			if(currentNote == answers[currentAnswer][i] || get_enharmonic(currentNote) == answers[currentAnswer][i]){
 			  	noteGuessBox.style.background=colorCorrect;
 				if (document.getElementById(currentNote)) {
 					document.getElementById(currentNote).style.fill = colorCorrect;
 			  	} else {
 					document.getElementById(get_flipped(currentNote)).style.fill = colorCorrect;
 				}
-			  
+				num_correct += 1			  
 			} 
-			// if wrong position but right octave (yellow)
-			else if(answers[currentAnswer].includes(currentNote)){
+			// if right note but wrong position (yellow)
+			else if(answers[currentAnswer].includes(currentNote) || answers[currentAnswer].includes(get_enharmonic(currentNote))){
 				noteGuessBox.style.background = colorRightOctave;
 				if (document.getElementById(currentNote)) {
 					document.getElementById(currentNote).style.fill = colorRightOctave;
@@ -561,8 +571,8 @@ function submit(){
 					document.getElementById(get_flipped(currentNote)).style.fill = colorRightOctave;
 				}
 			} 
-			// if right position but wrong octave (blue)
-			else if(answerNoteNames.includes(currentNoteName)){
+			// if right note but wrong octave (blue)
+			else if(answerNoteNames.includes(currentNoteName) || answerNoteNames.includes(get_enharmonic(currentNote).replace(/\d/g,''))){
 				noteGuessBox.style.background = colorRightPosition;
 				if (document.getElementById(currentNote)) {
 					document.getElementById(currentNote).style.fill = colorRightPosition;
@@ -587,7 +597,7 @@ function submit(){
 		}
 		
 		// if all correct
-		if(guesses[y].toString() == answers[currentAnswer].toString()){
+		if(num_correct == COLUMNS){
 			win();
 		}
 		x = 0;
@@ -613,16 +623,17 @@ function sleep(ms) {
 // Show a popup and play the chord if win
 async function win(){
 	if(!muted) {
-		// Play a note if we meet the time constraints
+		// Play each note in the chord
 		for (let i = 0; i < answers[currentAnswer].length; i++) {
-			// console.log(answers[currentAnswer][i], Tone.now());
 			playSynth(answers[currentAnswer][i]);
 			await sleep(300);
+		}
+		// Play the whole chord
+		await sleep(500)
+		playSynth(answers[currentAnswer], duration=1.5);
 	}
-	await sleep(500)
-	playSynth(answers[currentAnswer], duration=1.5);
-	}
-	// console.log("Playing win sound")
+	
+	// Add a message to the popup
 	document.getElementById("results").innerText = "Congratulations! This is: " + labels[currentAnswer]
 
 	// Increment the score by one

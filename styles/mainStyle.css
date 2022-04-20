@@ -204,6 +204,12 @@ rect:active{
 	line-height: 2em;
 }
 
+/* Popup text */
+#score_popup > p {
+	padding-top: 7px;
+	padding-bottom: 7px;
+}
+
 /* Close button */
 #close {
 	float: right;

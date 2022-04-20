@@ -31,7 +31,7 @@ window.addEventListener('resize', load_piano);
 function load_piano() {
     keys = piano.children;
     offset = keys[0].getBoundingClientRect().x;
-    piano.width.baseVal.value = Math.min(piano.width.baseVal.value, document.documentElement.clientWidth)
+    // piano.width.baseVal.value = Math.min(piano.width.baseVal.value, document.documentElement.clientWidth)
     for(let i = 0; i < keys.length; i++) {
         try {
             if(keys[i+1].x.baseVal.value + offset > document.documentElement.clientWidth) {
