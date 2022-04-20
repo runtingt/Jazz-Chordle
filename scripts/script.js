@@ -75,7 +75,7 @@ function position() {
             if (popup_texts[i].id == "info_popup") {
                 popup_texts[i].style.width = String(page_width/1)+"px";
                 popup_texts[i].style.height = "auto"
-                console.log(popup_texts[i].offsetHeight, window.innerHeight)
+                console.log(popup_texts[i].offsetHeight, screen.availHeight, window.innerHeight)
             } else if (popup_texts[i].id == "score_popup") {
                 popup_texts[i].style.width = String(page_width/(0.5*Math.log10(Math.pow(page_width, 5))-6))+"px";
                 popup_texts[i].style.height = String(page_height/17)+"px";
