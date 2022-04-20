@@ -10,6 +10,10 @@ html, body {
 	overflow-x: hidden;
 }
 
+html {
+	max-width: 100%
+}
+
 .right-icons {
 	position: absolute;
 	padding: 0;

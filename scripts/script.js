@@ -75,9 +75,8 @@ function position() {
             if (popup_texts[i].id == "info_popup") {
                 popup_texts[i].style.width = String(page_width/1)+"px";
                 popup_texts[i].style.height = "auto"
-                // console.log(popup_texts[i].offsetHeight, screen.availHeight, window.innerHeight)
             } else if (popup_texts[i].id == "score_popup") {
-                popup_texts[i].style.width = String(page_width/(0.5*Math.log10(Math.pow(page_width, 5))-6))+"px";
+                popup_texts[i].style.width = String(Math.min(page_width/(2*(0.5*Math.log10(Math.pow(page_width, 5))-6)), document.documentElement.clientWidth))+"px";
                 popup_texts[i].style.height = String(page_height/17)+"px";
             }
         }
@@ -174,11 +173,9 @@ document.getElementById("close").addEventListener("click", () => {
 
 // Functions to hide popups if the screen is clicked elsewhere
 async function is_outside(e, popup_name) {
-    // console.log("Looking for: ", popup_name)
     // Check if the element (or its parents) are part of the how-to popup
     is_popup = false;
     el = e.target;
-    // console.log(el)
     if (el.classList.contains(popup_name)) {
         is_popup = true;
     } else {
