@@ -490,9 +490,9 @@ document.querySelectorAll('.key').forEach(item => {
 	// if not out of bounds 
 	if (x != COLUMNS){
 		//console.log("clicked by " + t.id);
-		guesses[y].push(t.id);
+		guesses[y].push(t.id.split(" ")[0]);
 		//console.log((y + 1) + '-' + (x + 1))
-		document.getElementById((y + 1) + '-' + (x + 1)).innerText=t.id;
+		document.getElementById((y + 1) + '-' + (x + 1)).innerText=t.id.split(" ")[0];
 		x++;	
 	}
 
@@ -558,9 +558,9 @@ function submit(){
 			if(currentNote == answers[currentAnswer][i] || get_enharmonic(currentNote) == answers[currentAnswer][i]){
 			  	noteGuessBox.style.background=colorCorrect;
 				if (document.getElementById(currentNote)) {
-					document.getElementById(currentNote).style.fill = colorCorrect;
+					document.getElementById(currentNote + " dot").style.fill = colorCorrect;
 			  	} else {
-					document.getElementById(get_flipped(currentNote)).style.fill = colorCorrect;
+					document.getElementById(get_flipped(currentNote) + " dot").style.fill = colorCorrect;
 				}
 				num_correct += 1			  
 			} 
@@ -568,32 +568,35 @@ function submit(){
 			else if(answers[currentAnswer].includes(currentNote) || answers[currentAnswer].includes(get_enharmonic(currentNote))){
 				noteGuessBox.style.background = colorRightOctave;
 				if (document.getElementById(currentNote)) {
-					document.getElementById(currentNote).style.fill = colorRightOctave;
+					document.getElementById(currentNote + " dot").style.fill = colorRightOctave;
 			  	} else {
-					document.getElementById(get_flipped(currentNote)).style.fill = colorRightOctave;
+					document.getElementById(get_flipped(currentNote) + " dot").style.fill = colorRightOctave;
 				}
 			} 
 			// if right note but wrong octave (blue)
 			else if(answerNoteNames.includes(currentNoteName) || answerNoteNames.includes(get_enharmonic(currentNote).replace(/\d/g,''))){
 				noteGuessBox.style.background = colorRightPosition;
 				if (document.getElementById(currentNote)) {
-					document.getElementById(currentNote).style.fill = colorRightPosition;
+					document.getElementById(currentNote + " dot").style.fill = colorRightPosition;
 			  	} else {
-					document.getElementById(get_flipped(currentNote)).style.fill = colorRightPosition;
+					document.getElementById(get_flipped(currentNote) + " dot").style.fill = colorRightPosition;
 				}
 			}
 			// note is not in the chord
 			else{
 				noteGuessBox.style.background = colorWrong;
 				if (document.getElementById(currentNote)) {
-					document.getElementById(currentNote).style.fill = colorWrong;
+					document.getElementById(currentNote + " dot").style.fill = colorWrong;
 			  	} else {
-					document.getElementById(get_flipped(currentNote)).style.fill = colorWrong;
+					document.getElementById(get_flipped(currentNote) + " dot").style.fill = colorWrong;
 				}
 
+				// Colour the rest of the notes wrong
 				keys = document.getElementsByClassName(currentNoteName);
 				Array.prototype.forEach.call(keys, function(key) {
-					key.style.fill = colorWrong;
+					if(key.tagName == "circle") {
+						key.style.fill = colorWrong;
+					}
 				});
 			}
 		}

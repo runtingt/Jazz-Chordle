@@ -54,11 +54,20 @@ function playSynth(note, duration=0.75) {
     }
 }
 
+// Play note on click
 piano.addEventListener("click", async (e) => {
     if(!muted){
         await Tone.start()
         // Play a note if we meet the time constraints
-        playSynth(e.target.id)
+        playSynth(e.target.id.split(" ")[0])
     }
+});
+
+// Change colour on hover (needed to stop the dots being deadzones)
+piano.addEventListener("mouseover", event => {
+    document.getElementById(event.target.id.split(" ")[0]).style.filter = "invert(40%)"
+});
+piano.addEventListener("mouseout", event => {
+    document.getElementById(event.target.id.split(" ")[0]).style.filter = ""
 });
 

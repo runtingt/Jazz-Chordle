@@ -51,14 +51,6 @@ p{
 	margin-left: 16px;
 }
 
-rect:hover{
-	filter: invert(40%);
-}
-
-rect:active{
-	filter: invert(60%);
-}
-
 .roundedCorner {
 	border-radius: 25px;
 	background: #28292a;
