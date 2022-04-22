@@ -608,7 +608,8 @@ function submit(){
 		x = 0;
 		y++;
 		
-		if(y == guesses.length && guesses[y-1].toString() != answers[currentAnswer].toString()) {
+		// Display the chord on screen if not guessed in time
+		if(y == guesses.length && guesses[y-1].toString() != answers[currentAnswer].toString() && num_correct != COLUMNS) {
 			lose()
 		}
 	}
